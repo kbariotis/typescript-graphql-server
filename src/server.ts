@@ -19,11 +19,12 @@ export function createApp(): Koa {
   const router = new KoaRouter();
 
   // Fetch all schema definition files
-  const schemaFiles = readdirSync(pathJoin(__dirname, "schema"));
+  const schemaFiles = readdirSync(pathJoin(__dirname, "schema")).filter(
+    file => file.indexOf(".graphql") > 0
+  );
 
   // Concatanate them to create our schema
   const schema = schemaFiles
-    .filter(file => file.indexOf(".graphql") > 0)
     .map(file => readFileSync(pathJoin(__dirname, `schema/${file}`)).toString())
     .join();
 

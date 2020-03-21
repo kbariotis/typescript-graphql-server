@@ -4,7 +4,7 @@
   "scripts": {
     "build": "tsc && mkdir -p ./lib/schema && cp ./src/schema/*.graphql ./lib/schema",
     "start": "node ./lib/server.js",
-    "test": "mocha --exit --require ts-node/register src/**/*.test.ts"
+    "test": "mocha --recursive --exit --require ts-node/register 'src/**/*.test.ts'"
   },
   "devDependencies": {
     "@types/graphql": "^14.5.0",
