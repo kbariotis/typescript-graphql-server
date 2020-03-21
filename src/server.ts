@@ -30,7 +30,7 @@ export function createApp(): Koa {
   // Based on these files, bring their respective query resolvers
   const queryResolvers = schemaFiles
     .map(file => file.replace(".graphql", ""))
-    .map(file => require(pathJoin(__dirname, `queries/${file}.ts`)).default)
+    .map(file => require(pathJoin(__dirname, `queries/${file}`)).default)
     .reduce(
       (initial, current) => ({
         ...initial,

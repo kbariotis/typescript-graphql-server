@@ -2,7 +2,8 @@
   "name": "typescript-graphql-apollo-server",
   "private": true,
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && mkdir -p ./lib/schema && cp ./src/schema/*.graphql ./lib/schema",
+    "start": "node ./lib/server.js",
     "test": "mocha --exit --require ts-node/register src/**/*.test.ts"
   },
   "devDependencies": {
